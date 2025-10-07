@@ -1,10 +1,10 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "aspen",
+  "theme": "almond",
   "name": "Unleash",
   "colors": {
-    "primary": "#1A4049",
-    "light": "#7AACB7",
+    "primary": "#EAEAED",
+    "light": "#837BFF",
     "dark": "#1A4049"
   },
 
@@ -14,7 +14,7 @@
   "background": {
     "decoration": "gradient",
     "color": {
-      "light": "#ecf0f1"
+      "light": "#FFFFFF"
     }
   },
   "fonts": {
