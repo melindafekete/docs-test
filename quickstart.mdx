@@ -1,80 +1,139 @@
 ---
 title: "Quickstart"
-description: "Start building awesome documentation in minutes"
+description: "The easiest way to get started with Unleash is through a [cloud-hosted free trial](https://www.getunleash.io/plans/enterprise-payg). This gives you a ready-to-use instance, so you can explore all Unleash features without any local setup."
 ---
 
-## Get started in three steps
+In this guide, you'll:
+<Steps>
+<Step>
+**Sign up** for a free, cloud-hosted Unleash Enterprise instance.
+</Step>
+<Step>
+**Create your first feature flag** using the Unleash Admin UI.
+</Step>
+<Step>
+**Connect Unleash to your application** by integrating an SDK into your codebase.
+</Step>
+</Steps>
 
-Get your documentation site running locally and make your first customization.
+<Frame>
+  <img
+    src="https://docs.getunleash.io/assets/images/onboarding-experience-ff8cec681a2b5c822db3e28873dc6916.png"
+    alt="The Unleash Admin UI onboarding experience"
+  />
+</Frame>
 
-### Step 1: Set up your local environment
+If you prefer to manage your own infrastructure, see the [self-hosted setup guide](https://docs.getunleash.io/using-unleash/deploy/getting-started). To use the open-source version, see the instructions in the [Unleash GitHub repository](https://github.com/Unleash/unleash?tab=readme-ov-file#get-started-with-unleash).
 
-<AccordionGroup>
-  <Accordion icon="copy" title="Clone your docs locally">
-    During the onboarding process, you created a GitHub repository with your docs content if you didn't already have one. You can find a link to this repository in your [dashboard](https://dashboard.mintlify.com).
-    
-    To clone the repository locally so that you can make and preview changes to your docs, follow the [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) guide in the GitHub docs.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Start the preview server">
-    1. Install the Mintlify CLI: `npm i -g mint`
-    2. Navigate to your docs directory and run: `mint dev`
-    3. Open `http://localhost:3000` to see your docs live!
-    
-    <Tip>Your preview updates automatically as you edit files.</Tip>
-  </Accordion>
-</AccordionGroup>
+## Sign up for an Unleash Enterprise Cloud trial
 
-### Step 2: Deploy your changes
+Start by signing up for a [free 14-day trial](https://www.getunleash.io/plans/enterprise-payg) of Unleash Enterprise Cloud. After you submit the form, you will receive a confirmation email. Follow the link in the email to set your password and log in to your Unleash instance.
 
-<AccordionGroup>
-  <Accordion icon="github" title="Install our GitHub app">
-    Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app).
-    
-    Our GitHub app automatically deploys your changes to your docs site, so you don't need to manage deployments yourself.
+## Create your first feature flag
+
+Once you've logged in, it's time to create your first feature flag:
+<Steps>
+<Step>
+ In the Unleash Admin UI, open the **Default** project.
+</Step>
+<Step>
+Click **New feature flag**.
+</Step>
+<Step>
+Enter a name, and click **Create feature flag**.
+</Step>
+</Steps>
+For more details on creating feature flags, see [How to create a feature flag](https://docs.getunleash.io/how-to-create-feature-flag).
+
+## Connect your application to Unleash
+
+Next, use one of the client or backend [SDKs](https://docs.getunleash.io/reference/sdks) to connect Unleash with your application.
+
+
+<Accordion title="Need an example application to test with?">
+Explore our SDK examples directly in your browser with CodeSandbox. Check out the Unleash SDK Examples repository to try one now.
 </Accordion>
-<Accordion icon="palette" title="Update your site name and colors">
-    For a first change, let's update the name and colors of your docs site.
 
-    1. Open `docs.json` in your editor.
-    2. Change the `"name"` field to your project name.
-    3. Update the `"colors"` to match your brand.
-    4. Save and see your changes instantly at `http://localhost:3000`.
 
-    <Tip>Try changing the primary color to see an immediate difference!</Tip>
-  </Accordion>
-</AccordionGroup>
+<Tabs>
+<Tab title="Connect a frontend SDK">
+<Steps>
+<Step title="Create an API token">
+	In the Unleash Admin UI, create a [frontend API token](https://docs.getunleash.io/reference/api-tokens-and-client-keys#frontend-tokens) in **Admin settings > Access control > API access**.
+</Step>
+<Step title="Get your Unleash API URL">
 
-### Step 3: Go live
+	Find the base URL of your Unleash Cloud instance (for example, `https://us.app.unleash-hosted.com/some-instance-id`). Your frontend API URL is this base URL with `/api/frontend` appended to it.
+</Step>
+<Step title="Initialize the SDK">
+	In your application code, initialize the SDK using your API URL and token.
+</Step>
+</Steps>
+The following example shows how to use the [JavaScript SDK](https://docs.getunleash.io/reference/sdks/javascript-browser) to connect to your Unleash instance:
 
-<Accordion icon="rocket" title="Publish your docs">
-  1. Commit and push your changes.
-  2. Your docs will update and be live in moments!
-</Accordion>
+```javascript
+import { UnleashClient } from "unleash-proxy-client";
+
+const unleash = new UnleashClient({
+    url: "https://<YOUR_UNLEASH_INSTANCE>/api/frontend",
+    clientKey: "<YOUR_TOKEN>",
+    appName: "<YOUR_APP_NAME>",
+});
+
+unleash.on("synchronized", () => {
+    // Unleash is ready to serve updated feature flags.
+    // Check a feature flag
+    if (unleash.isEnabled("some-flag")) {
+        // do cool new things when the flag is enabled
+    }
+});
+```
+</Tab>
+
+<Tab title="Connect a backend SDK">
+<Steps>
+<Step title="Create an API token">
+	In the Unleash Admin UI, create a [backend token](https://docs.getunleash.io/reference/api-tokens-and-client-keys#backend-tokens) in **Admin settings > Access control > API access**.
+</Step>
+<Step title="Get your Unleash API URL">
+	Find the base URL of your Unleash Cloud instance (for example, `https://us.app.unleash-hosted.com/some-instance-id`). Your API URL is this base URL with `/api` appended to it.
+</Step>
+<Step title="Initialize the SDK">
+	In your application code, initialize the SDK using your API URL and token.
+</Step>
+</Steps>
+The following example shows how to use the [Node.js SDK](https://docs.getunleash.io/reference/sdks/node) to connect to your Unleash instance:
+
+```javascript
+const { initialize } = require("unleash-client");
+
+const unleash = initialize({
+    url: "https://<YOUR_UNLEASH_INSTANCE>/api",
+    appName: "<YOUR_APP_NAME>",
+    customHeaders: {
+        Authorization: "<YOUR_TOKEN>",
+    },
+});
+
+unleash.on("synchronized", () => {
+    // Unleash is ready to serve updated feature flags.
+    if (unleash.isEnabled("some-flag")) {
+        // do cool new things when the flag is enabled
+    }
+});
+```
+
+</Tab>
+</Tabs>
+
+
+
+For examples that show how to connect to Unleash in other programming languages, see the [Unleash SDK Examples repository](https://github.com/Unleash/unleash-sdk-examples).
 
 ## Next steps
 
-Now that you have your docs running, explore these key features:
+You have successfully connected Unleash to your application. To continue exploring, see the following resources:
 
-<CardGroup cols={2}>
-
-<Card title="Write Content" icon="pen-to-square" href="/essentials/markdown">
-  Learn MDX syntax and start writing your documentation.
-</Card>
-
-<Card title="Customize style" icon="palette" href="/essentials/settings">
-  Make your docs match your brand perfectly.
-</Card>
-
-<Card title="Add code examples" icon="square-code" href="/essentials/code">
-  Include syntax-highlighted code blocks.
-</Card>
-
-<Card title="API documentation" icon="code" href="/api-reference/introduction">
-  Auto-generate API docs from OpenAPI specs.
-</Card>
-
-</CardGroup>
-
-<Note>
-  **Need help?** See our [full documentation](https://mintlify.com/docs) or join our [community](https://mintlify.com/community).
-</Note>
+- **Core concepts**: Learn about the [Unleash architecture](https://docs.getunleash.io/understanding-unleash/unleash-overview), available [hosting options](https://docs.getunleash.io/understanding-unleash/hosting-options), and other [reference documentation](https://docs.getunleash.io/reference/projects).
+- **Developer guides**: Explore feature flag [best practices](https://docs.getunleash.io/topics/feature-flags/feature-flag-best-practices) and [language-specific tutorials](https://docs.getunleash.io/feature-flag-tutorials/react).
+- **Join the community**: Have questions or feedback? Join the [Unleash community on Slack](https://slack.unleash.run/) to connect with other developers and the Unleash team.

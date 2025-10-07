@@ -1,68 +1,97 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
+  "theme": "aspen",
+  "name": "Unleash",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#1A4049",
+    "light": "#7AACB7",
+    "dark": "#1A4049"
+  },
+
+  "appearance": {
+    "default": "light"
+  },
+  "background": {
+    "decoration": "gradient",
+    "color": {
+      "light": "#ecf0f1"
+    }
+  },
+  "fonts": {
+    "heading": {
+      "family": "Styrene A Web",
+      "source": "https://www.getunleash.io/fonts/StyreneA-Light-Web.woff2",
+      "format": "woff2",
+      "weight": 800
+    },
+    "body": {
+      "family": "Styrene B Web",
+      "source": "https://www.getunleash.io/fonts/StyreneB-Regular-Web.woff2",
+      "format": "woff2"
+    }
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
+        "tab": "Home",
+        "pages": ["index"]
+      },
+      {
         "tab": "Guides",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Get started",
             "pages": [
-              "index",
               "quickstart",
-              "development"
+              "what-is-a-feature-flag",
+              "understanding-unleash/unleash-overview"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Core concepts",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "understanding-unleash/the-anatomy-of-unleash",
+              {
+                "group": "Projects and environments",
+                "pages": [
+                  "reference/projects",
+                  "reference/project-collaboration-mode",
+                  "reference/environments"
+                ]
+              }
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Tutorials and guides",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              {
+                "group": "Feature management",
+                "pages": [
+                  "feature-flag-migration/feature-flag-migration-best-practices"
+                ]
+              },
+              {
+                "group": "Dev and release workflows",
+                "pages": [
+                  "how-to-create-feature-flag",
+                  "how-to/how-to-schedule-feature-releases"
+                ]
+              }
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "API Reference",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Addons",
             "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "reference/api/unleash/get-addons",
+              "reference/api/unleash/create-addon",
+              "reference/api/unleash/update-addon",
+              "reference/api/unleash/delete-addon"
             ]
           }
         ]
@@ -71,52 +100,60 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Status",
+          "href": "https://unleash.instatus.com/",
+          "icon": "signal"
         },
         {
           "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
+          "href": "https://www.getunleash.io/blog",
           "icon": "newspaper"
+        },
+        {
+          "anchor": "Community",
+          "href": "https://unleash-community.slack.com/signup",
+          "icon": "slack"
         }
       ]
     }
   },
   "logo": {
     "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "dark": "/logo/dark.svg",
+    "href": "https://www.getunleash.io"
   },
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "Sign in ",
+        "href": "https://app.unleash-hosted.com/sign-in"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Start Free Trial",
+      "href": "https://www.getunleash.io/plans/enterprise-payg"
     }
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/getunleash",
+      "github": "https://github.com/Unleash/unleash",
+      "linkedin": "https://www.linkedin.com/company/getunleash",
+      "slack": "https://unleash-community.slack.com/signup",
+      "youtube": "https://www.youtube.com/channel/UCJjGVOc5QBbEje-r7nZEa4A"
     }
   }
 }

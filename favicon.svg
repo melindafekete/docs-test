@@ -1,19 +1,8 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M9.06145 23.1079C5.26816 22.3769 -3.39077 20.6274 1.4173 5.06384C9.6344 6.09939 16.9728 14.0644 9.06145 23.1079Z" fill="url(#paint0_linear_17557_2021)"/>
-<path d="M8.91928 23.0939C5.27642 21.2223 0.78371 4.20891 17.0071 0C20.7569 7.19341 19.6212 16.5452 8.91928 23.0939Z" fill="url(#paint1_linear_17557_2021)"/>
-<path d="M8.91388 23.0788C8.73534 19.8817 10.1585 9.08525 23.5699 13.1107C23.1812 20.1229 18.984 26.4182 8.91388 23.0788Z" fill="url(#paint2_linear_17557_2021)"/>
-<defs>
-<linearGradient id="paint0_linear_17557_2021" x1="3.77557" y1="5.91571" x2="5.23185" y2="21.5589" gradientUnits="userSpaceOnUse">
-<stop stop-color="#18E299"/>
-<stop offset="1" stop-color="#15803D"/>
-</linearGradient>
-<linearGradient id="paint1_linear_17557_2021" x1="12.1711" y1="-0.718425" x2="10.1897" y2="22.9832" gradientUnits="userSpaceOnUse">
-<stop stop-color="#16A34A"/>
-<stop offset="1" stop-color="#4ADE80"/>
-</linearGradient>
-<linearGradient id="paint2_linear_17557_2021" x1="23.1327" y1="15.353" x2="9.33841" y2="18.5196" gradientUnits="userSpaceOnUse">
-<stop stop-color="#4ADE80"/>
-<stop offset="1" stop-color="#0D9373"/>
-</linearGradient>
-</defs>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+<path d="M0 0 C4.36563955 3.40519885 6.65875906 6.44779007 7.50390625 11.8671875 C7.78817485 17.90101785 6.84570953 21.66735957 3.125 26.4375 C-1.64514043 30.15820953 -5.41148215 31.10067485 -11.4453125 30.81640625 C-16.86470993 29.97125906 -19.90730115 27.67813955 -23.3125 23.3125 C-25.8128279 18.26854848 -25.92696073 12.71164997 -24.21484375 7.3828125 C-22.32987667 3.58023822 -19.73226178 0.98262333 -15.9296875 -0.90234375 C-10.60085003 -2.61446073 -5.04395152 -2.5003279 0 0 Z " fill="#193F49" transform="translate(24.875,1.5625)"/>
+<path d="M0 0 C1.65 0 3.3 0 5 0 C5 2.97 5 5.94 5 9 C6.32 9 7.64 9 9 9 C9 6.03 9 3.06 9 0 C10.65 0 12.3 0 14 0 C14 4.62 14 9.24 14 14 C9.38 14 4.76 14 0 14 C0 9.38 0 4.76 0 0 Z " fill="#C6CFD1" transform="translate(9,9)"/>
+<path d="M0 0 C0.99 0 1.98 0 3 0 C3 2.64 3 5.28 3 8 C4.65 8 6.3 8 8 8 C8 9.32 8 10.64 8 12 C5.36 12 2.72 12 0 12 C0 8.04 0 4.08 0 0 Z " fill="#FAFBFB" transform="translate(10,10)"/>
+<path d="M0 0 C1.65 0 3.3 0 5 0 C5 2.97 5 5.94 5 9 C3.35 9 1.7 9 0 9 C0 6.03 0 3.06 0 0 Z " fill="#E4E8E9" transform="translate(18,9)"/>
+<path d="M0 0 C1.65 0 3.3 0 5 0 C5 1.65 5 3.3 5 5 C3.35 5 1.7 5 0 5 C0 3.35 0 1.7 0 0 Z " fill="#7474E1" transform="translate(18,18)"/>
 </svg>

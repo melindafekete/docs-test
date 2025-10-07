@@ -1,0 +1,119 @@
+---
+title: "Delete an addon"
+description: "Delete the addon specified by the ID in the request path."
+api: DELETE https://docs.getunleash.io/api/admin/addons/{id}
+contentType: application/json
+---
+
+## Request
+
+### Path Params
+<ParamField path="id" type="string" required>
+The ID of the addon to delete.
+</ParamField>
+
+## Responses
+
+### 200
+Success
+
+This response has no body.
+
+### 401
+Authorization information is missing or invalid. Provide a valid API token as the `authorization` header, e.g. `authorization:*.*.my-admin-token`.
+
+<Expandable title="Response body">
+<ResponseField name="id" type="string">
+The ID of the error instance
+
+**Example:** `9c40958a-daac-400e-98fb-3bb438567008`
+</ResponseField>
+
+<ResponseField name="name" type="string">
+The name of the error kind
+
+**Example:** `AuthenticationRequired`
+</ResponseField>
+
+<ResponseField name="message" type="string">
+A description of what went wrong.
+
+**Example:** `You must log in to use Unleash. Your request had no authorization header, so we could not authorize you. Try logging in at /auth/simple/login.`
+</ResponseField>
+</Expandable>
+
+### 403
+The provided user credentials are valid, but the user does not have the necessary permissions to perform this operation
+
+<Expandable title="Response body">
+<ResponseField name="id" type="string">
+The ID of the error instance
+
+**Example:** `9c40958a-daac-400e-98fb-3bb438567008`
+</ResponseField>
+
+<ResponseField name="name" type="string">
+The name of the error kind
+
+**Example:** `NoAccessError`
+</ResponseField>
+
+<ResponseField name="message" type="string">
+A description of what went wrong.
+
+**Example:** `You need the "UPDATE_ADDON" permission to perform this action in the "development" environment.`
+</ResponseField>
+</Expandable>
+
+### 404
+The requested resource was not found.
+
+<Expandable title="Response body">
+<ResponseField name="id" type="string">
+The ID of the error instance
+
+**Example:** `9c40958a-daac-400e-98fb-3bb438567008`
+</ResponseField>
+
+<ResponseField name="name" type="string">
+The name of the error kind
+
+**Example:** `NotFoundError`
+</ResponseField>
+
+<ResponseField name="message" type="string">
+A description of what went wrong.
+
+**Example:** `Could not find the addon with ID "12345".`
+</ResponseField>
+</Expandable>
+
+<ResponseExample>
+```bash RESPONSE 200
+(No response body)
+```
+
+```bash RESPONSE 401
+{
+  "id": "9c40958a-daac-400e-98fb-3bb438567008",
+  "name": "AuthenticationRequired",
+  "message": "You must log in to use Unleash. Your request had no authorization header, so we could not authorize you. Try logging in at /auth/simple/login."
+}
+```
+
+```bash RESPONSE 403
+{
+  "id": "9c40958a-daac-400e-98fb-3bb438567008",
+  "name": "NoAccessError",
+  "message": "You need the \"UPDATE_ADDON\" permission to perform this action in the \"development\" environment."
+}
+```
+
+```bash RESPONSE 404
+{
+  "id": "9c40958a-daac-400e-98fb-3bb438567008",
+  "name": "NotFoundError",
+  "message": "Could not find the addon with ID \"12345\"."
+}
+```
+</ResponseExample>

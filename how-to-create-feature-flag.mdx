@@ -1,0 +1,84 @@
+---
+title: "Create and configure a feature flag"
+description: "[Feature flags](https://docs.getunleash.io/reference/feature-toggles) are a foundational component of Unleash, enabling you to manage features dynamically. This guide details the process of creating and configuring feature flags within Unleash. You'll learn how to create flags, define activation strategies, enable them, and optionally refine their behavior with constraints, segments, and variants."
+---
+
+This guide focuses on the Unleash Admin UI, but you can also use the [Admin API](https://docs.getunleash.io/reference/api/unleash/create-feature) to create, update, and manage feature flags.
+
+## Create a feature flag
+
+To create a feature flag in the Admin UI, do the following:
+<Steps>
+<Step>
+Go to a project and click **Create feature flag**.
+</Step>
+<Step>
+Enter a unique name for the flag and click **Create feature flag**.
+</Step>
+</Steps>
+
+## Add an activation strategy
+
+[Activation strategies](https://docs.getunleash.io/reference/activation-strategies) determine how and for whom a feature flag is enabled within a specific environment (for example, development, or production). To add an activation strategy to your feature flag in the Admin UI, do the following:
+<Steps>
+<Step>
+ Go to a feature flag, and select the [environment](https://docs.getunleash.io/reference/environments) where you want to configure the flag.
+</Step>
+<Step>
+ Click **Add strategy** for that environment.
+</Step>
+<Step>
+ In the **General** tab, select your rollout percentage. Optionally, you can set the strategy status to **Inactive** if you don't yet want the strategy to be exposed.
+</Step>
+<Step>
+ Click **Save strategy**.
+</Step>
+</Steps>
+## Enable the feature flag in an environment
+
+To enable the feature flag in an environment, use the main environment toggle to enable the flag in the environment. This ensures that the feature flag is evaluated using the rules of its activation strategies and the provided [Unleash context](https://docs.getunleash.io/reference/unleash-context).
+
+## Refine targeting with constraints and segments
+
+[Strategy constraints](https://docs.getunleash.io/reference/activation-strategies#constraints) and [segments](https://docs.getunleash.io/reference/segments) allow you to apply fine-grained filters to your activation strategies, ensuring they only activate for users and applications matching specific criteria. You can add constraints or segments when creating or editing an existing activation strategy.
+
+<Steps>
+<Step>
+ Go to the feature flag and the environment containing the strategy you want to modify and click the **Edit strategy**.
+</Step>
+<Step>
+In the Targeting Tab, click **Add constraint**.
+</Step>
+<Step>
+ To define the constraint, add a context field, an operator, and values to compare against.
+</Step>
+<Step>
+ Add more constraints if needed, and click **Save strategy**.
+</Step>
+</Steps>
+[Segments](https://docs.getunleash.io/reference/segments) work similarly to constraints, but they are a reusable set of constraints that you define once and can reuse across flags.
+
+### Configure strategy variants
+
+[Variants](https://docs.getunleash.io/reference/feature-toggle-variants) give you the ability to further target your users and split them into groups of your choosing, such as for A/B testing.
+
+<Steps>
+<Step>
+Go to the feature flag and the environment containing the strategy you want to modify and click the **Edit strategy**.
+</Step>
+<Step>
+ In the **Variants** tab, click **Add variant**.
+</Step>
+<Step>
+Enter the variant name and an optional payload.
+</Step>
+<Step>
+ Optionally, click **Add variant** again to add more variants.
+</Step>
+<Step>
+ Toggle **Custom percentage** for fixed weights, if required.
+</Step>
+<Step>
+Click **Save strategy**.
+</Step>
+</Steps>
